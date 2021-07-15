@@ -2,10 +2,16 @@ import { useState } from 'react';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import './MemeMaker.css';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+toast.configure();
+
 const MemeMaker = (props) => {
 
     const [imageUrl, setImageUrl] = useState(props.props.url);
     const [inputs, setInputs] = useState([...Array(props.props.box_count)].map(()=> 0));
+    const [generatedMessage, setGeneratedMessage] = useState("");
 
     const updateSetInputs = (updateValue, updateIndex) => {
 
@@ -18,7 +24,7 @@ const MemeMaker = (props) => {
         var XHRRequest = new XMLHttpRequest();
         XHRRequest.open("GET", IMAGE_URL, true);
         XHRRequest.responseType = "blob";
-        
+
         XHRRequest.onload = function(){
             var urlCreator = window.URL || window.webkitURL;
             var imageUrl = urlCreator.createObjectURL(this.response);
@@ -32,6 +38,59 @@ const MemeMaker = (props) => {
         XHRRequest.send();
     }
     
+    const updateImageUrl = (URL) => {
+        setImageUrl(URL);
+    }
+
+    const getGeneratedMemeURL = async() => {
+
+        
+        // let URL = `https://api.imgflip.com/caption_image?username=KartikGupta3&password=leiwulong123&template_id=${props.props.id}&`;
+        // console.log(URL);
+
+        let url=`https://api.imgflip.com/caption_image?template_id=${props.props.id}&username=KartikGupta3&password=leiwulong123`
+        inputs.map((item,index)=>{
+            url = url + `&boxes[${index}][text]=${item}`;
+        })
+        console.log(url); 
+        let updatedURLData = await fetch(url);
+        let updatedJSONResponse = await updatedURLData.json();
+
+        try {
+                updateImageUrl(updatedJSONResponse.data.url);
+                setGeneratedMessage("Meme Generated Successfully✅ ");
+                toast.success("Meme Generated Successfully✅ ", {
+                    position: "bottom-left",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    });
+                
+        }
+        catch(err) {
+            setGeneratedMessage("⚠ Could not generate meme");
+            toast.error("⚠ Could not generate meme", {
+                position: "bottom-left",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                });
+           
+        }
+    }
+
+    const generateMeme = () => {
+
+        getGeneratedMemeURL();
+        // notify();
+        
+    }
 
     return(
         <>
@@ -61,10 +120,11 @@ const MemeMaker = (props) => {
                 <button className="generate-btn"
                         onClick={()=> {
                             console.log(inputs);
+                            generateMeme();
                         }}>GENERATE MEME !</button>
             </div>
 
-            {JSON.stringify(props.props)}
+            <div></div>
         </div>
         
         </>
