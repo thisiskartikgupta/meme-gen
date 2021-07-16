@@ -1,17 +1,16 @@
 import { useState } from 'react';
-import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
-import './MemeMaker.css';
 
-import { ToastContainer, toast } from 'react-toastify';
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import {toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-toast.configure();
+import './MemeMaker.css';
 
+toast.configure();
 const MemeMaker = (props) => {
 
     const [imageUrl, setImageUrl] = useState(props.props.url);
     const [inputs, setInputs] = useState([...Array(props.props.box_count)].map(()=> 0));
-    const [generatedMessage, setGeneratedMessage] = useState("");
 
     const updateSetInputs = (updateValue, updateIndex) => {
 
@@ -44,10 +43,6 @@ const MemeMaker = (props) => {
 
     const getGeneratedMemeURL = async() => {
 
-        
-        // let URL = `https://api.imgflip.com/caption_image?username=KartikGupta3&password=leiwulong123&template_id=${props.props.id}&`;
-        // console.log(URL);
-
         let url=`https://api.imgflip.com/caption_image?template_id=${props.props.id}&username=KartikGupta3&password=leiwulong123`
         inputs.map((item,index)=>{
             url = url + `&boxes[${index}][text]=${item}`;
@@ -58,7 +53,6 @@ const MemeMaker = (props) => {
 
         try {
                 updateImageUrl(updatedJSONResponse.data.url);
-                setGeneratedMessage("Meme Generated Successfully✅ ");
                 toast.success("Meme Generated Successfully✅ ", {
                     position: "bottom-left",
                     autoClose: 5000,
@@ -71,7 +65,6 @@ const MemeMaker = (props) => {
                 
         }
         catch(err) {
-            setGeneratedMessage("⚠ Could not generate meme");
             toast.error("⚠ Could not generate meme", {
                 position: "bottom-left",
                 autoClose: 5000,
@@ -87,9 +80,7 @@ const MemeMaker = (props) => {
 
     const generateMeme = () => {
 
-        getGeneratedMemeURL();
-        // notify();
-        
+        getGeneratedMemeURL();   
     }
 
     return(
@@ -102,7 +93,7 @@ const MemeMaker = (props) => {
         </button>
 
         <div className="meme-maker" style={{color:"#FFF"}}>
-            
+            <button autoFocus></button>
             <img className="target-image" src={imageUrl} alt={props.props.name}/>
             
             <div className="input-container">
@@ -110,7 +101,7 @@ const MemeMaker = (props) => {
             [...Array(props.props.box_count)].map((element, index)=> <input className="text-field-input"
                                                                             placeholder={`Text ${index+1}`}
                                                                             key={index}
-                                                                            onChange={(event) => {updateSetInputs(event.target.value,index)}}/>)
+                                                                            onChange={(event) => {updateSetInputs(event.target.value,index)}} />)
             }
             </div>
 

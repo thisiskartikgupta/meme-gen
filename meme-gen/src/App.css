@@ -3,12 +3,55 @@
 
   background-color:rgb(19, 33, 73);
 }
+
 .meme-card-display-container {
 
   display: flex;
   align-self: center;
   display:grid;
-  grid-template-columns: repeat(4, 23%);
-  grid-template-rows: repeat(25, 15%);
+  grid-template-columns: repeat(2, 40%);
+  grid-template-rows: repeat(25, 4%);
   margin-left: 10%;
+  font-size: 14px;
+}
+
+@media(min-width: 700px) {
+  
+  .meme-card-display-container {
+
+    display: flex;
+    align-self: center;
+    display:grid;
+    grid-template-columns: repeat(4, 23%);
+    grid-template-rows: repeat(25, 5%);
+    margin-left: 10%;
+  }
+}
+
+@media(min-width: 900px) {
+  
+  .meme-card-display-container {
+
+    display: flex;
+    align-self: center;
+    display:grid;
+    grid-template-columns: repeat(4, 23%);
+    grid-template-rows: repeat(25, 12%);
+    margin-left: 10%;
+    font-size: 20px;
+  }
+}
+
+@media(min-width: 1024px) {
+
+  .meme-card-display-container {
+
+    display: flex;
+    align-self: center;
+    display:grid;
+    grid-template-columns: repeat(4, 23%);
+    grid-template-rows: repeat(25, 15%);
+    margin-left: 10%;
+  }
+  
 }

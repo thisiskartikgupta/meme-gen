@@ -8,7 +8,7 @@
 }
 
 .meme-card-container:hover {
-    border: 2px dashed #DCC500;
+    border-color: #DCC500;
 }
 
 .meme-card-container .meme-image {
@@ -19,11 +19,11 @@
     margin-left: 5%;
     margin-top: 5%;
     border-radius: 16px;
-    border: 1px dashed #EEE;
+    border: 2px dashed #EEE;
 }
 
 .meme-card-container .meme-image:hover {
-    border: 1px dashed #DCC500;
+    border-color: #DCC500;
 }
 
 .meme-card-container .meme-name {
@@ -32,10 +32,9 @@
     border: 1px dashed #EEE;
     margin: 1% 5%;
     border-radius: 16px;
-    font-size: 20px;
 }
 
 .meme-card-container .meme-name:hover {
-    border: 1px dashed #DCC500;
+    border-color: #DCC500;
     color:#DCC500;
 }

@@ -18,14 +18,14 @@
 }
 
 .go-back-btn:hover {
-    border:2px dashed #DCC500;
+    border-color:#DCC500;
 }
 
 .target-image {
     width: 400px;
     border-radius: 8px;
     padding: 8px;
-    border:2px solid #EEE;
+    border:2px solid #888;
 }
 
 .download-btn {
@@ -37,13 +37,8 @@
 }
 
 .download-btn:hover {
-    color: purple;
-    border: 2px dashed purple;  
-}
-
-.download-btn:hover {
     color: #DCC500;
-    border: 2px dashed #DCC500;
+    border-color: #DCC500;
 }
 
 .generate-btn {
@@ -56,7 +51,7 @@
 
 .generate-btn:hover {
     color: #DCC500;
-    border : 2px dashed #DCC500;
+    border-color:  #DCC500;
 }
 
 .meme-maker .input-container {
