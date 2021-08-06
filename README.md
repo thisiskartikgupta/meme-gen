@@ -20,6 +20,9 @@
 
 --- 
 
+<img src="https://raw.githubusercontent.com/thisiskartikgupta/meme-gen/main/readme/img/meme-gen_home.png" alt="meme-gen-home">
+<img src="https://raw.githubusercontent.com/thisiskartikgupta/meme-gen/main/readme/img/meme-gen_meme2.png" alt="meme-gen-meme2">
+
 ## Setting up the project locally
 
 #### The project is built using ```create-react-app``` and was built using **Node v14**. For additional instructions head to [README](https://github.com/thisiskartikgupta/meme-gen/blob/main/meme-gen/README.md)
