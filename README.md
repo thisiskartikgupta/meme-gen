@@ -16,7 +16,7 @@
 
 #### It's time for you to convert them into reality in form of high-quality memes. 
 
-#### Just head to the link and enjoy : [**MEME GENERATOR LIVE**](https://main.dxq2h6n100wda.amplifyapp.com/)
+#### Just head to the link and enjoy : [**MEME GENERATOR LIVE**](https://meme-generator-thisiskartikgupta.netlify.app/)
 
 --- 
 
